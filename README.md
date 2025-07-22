@@ -20,4 +20,6 @@ More information:
 - [Video1 RStudio connection to GitHub](https://www.youtube.com/watch?v=MdmnE3AnkQE)
 - [Video2 RStudio connection to GitHub](https://www.youtube.com/watch?v=jN6tvgt3GK8)
 
-Checking if it works 
+Checking if it works!
+
+
