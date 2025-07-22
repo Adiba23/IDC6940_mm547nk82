@@ -1,7 +1,7 @@
 ---
-title: "Writing a great story for data science projects - spring 2025"
+title: "Clustering Traffic Accidents Using K-Means Clustering - Summer 2025"
 subtitle: "This is a Report Template Quarto"
-author: "Students names (Advisor: Dr. Cohen)"
+author: "Naveen Katepalli, Mrinal Mandapaka, Adiba Khan "
 date: '`r Sys.Date()`'
 format:
   html:
@@ -31,34 +31,91 @@ writing!
 :::
 
 ## Introduction
+## Project Overview
 
-The introduction should:
+This capstone project applies **K-Means Clustering** to analyze traffic accident data, aiming to identify high-risk areas (“hotspots”) and uncover contributing factors such as location, time, weather, or road conditions. By grouping similar accidents into clusters, the project provides actionable insights for transportation authorities to implement targeted safety measures, reducing accident frequency and severity  
+*(Road accident prediction and model interpretation using a hybrid K-means and random forest algorithm approach, Discover Applied Sciences, 2020).*
 
--   Develop a storyline that captures attention and maintains interest.
+## K-Means Clustering for Traffic Accident Analysis
 
--   Your audience is your peers
+K-Means Clustering, an unsupervised learning algorithm, segments traffic accident data into K clusters, ensuring incidents within a cluster share similar characteristics while differing from other clusters  
+*(Sinaga & Yang, IEEE Access, 2020; Bao Chong, Francis Academic Press, 2021).*
 
--   Clearly state the problem or question you're addressing.
+The process involves:
 
-<!-- -->
+- **Centroid Initialization**: Select K initial centroids, ideally using PCA to enhance convergence *(Zubair et al., ICECTE, 2022)*.
+- **Data Assignment**: Assign each accident record to the nearest centroid using features like geographic coordinates, time, or weather *(Fahlevi et al., 2020)*.
+- **Centroid Update**: Recalculate centroids as the mean of assigned points *(Dubey et al., 2013)*.
+- **Iteration**: Repeat until clusters stabilize *(Javadi et al., 2017)*.
 
--   Introduce why it is relevant needs.
+This project uses datasets like NYC construction-related accidents or Indian traffic data to cluster incidents by spatial, temporal, or environmental factors  
+*(Journal of Big Data, 2015; GitHub workzone-collision-analysis, 2020).*
 
--   Provide an overview of your approach.
+## Determining the Optimal Number of Clusters
 
-Example of writing including citing references:
+To ensure meaningful clusters, the following methods were used:
 
-*This is an introduction to ..... regression, which is a non-parametric
-estimator that estimates the conditional expectation of two variables
-which is random. The goal of a kernel regression is to discover the
-non-linear relationship between two random variables. To discover the
-non-linear relationship, kernel estimator or kernel smoothing is the
-main method to estimate the curve for non-parametric statistics. In
-kernel estimator, weight function is known as kernel function
-[@efr2008]. Cite this paper [@bro2014principal]. The GEE [@wang2014].
-The PCA [@daffertshofer2004pca]*. Topology can be used in machine learning [@adams2021topology]
+- **Elbow Method**: Plots SSE against K to find the “elbow” point  
+*(Syakur et al., 2018)*.
+- **Silhouette Method**: Uses silhouette coefficients (-1 to 1) to evaluate cluster quality  
+*(Rousseeuw, 1987; Shi et al., 2021)*.
+- **Gap Statistic**: Compares within-cluster dispersion to a reference distribution  
+*(Tibshirani et al., 2001)*.
 
-*This is my work and I want to add more work...*
+Weighted variants like **Silhouette-Coefficient Based Weighting K-Means** and **K-Sil** were explored to improve clustering accuracy *(Lai et al., 2024; Semoglou et al., arXiv, 2025).*
+
+## Optimization and Preprocessing
+
+The **Canopy algorithm** was used to partition large datasets before clustering  
+*(Yuan & Yang, 2019; IEEE, 2020)*.  
+**PCA** was applied to reduce dimensionality and focus on key features like location or road conditions *(Zubair et al., 2022)*.
+
+## Cluster Quality Evaluation
+
+Cluster validity was evaluated using the **Calinski-Harabasz index**, where higher values indicate better-defined clusters  
+*(Qabbaah et al., 2019).*
+
+# Methods
+
+The project applies K-Means clustering on traffic accident datasets to identify geographic and temporal hotspots. Several real-world applications guided our methodology:
+
+- **London**: K-Means + KDE to group accidents into 15 environmental clusters  
+*(ScienceDirect, 2007)*
+- **India**: K-Modes + Association Rule Mining on 11,574 accidents  
+*(Journal of Big Data, 2015)*
+- **Colombia**: Clustered zones using venue composition in Medellín  
+*(ScienceDirect, 2020)*
+
+This project analyzed over 20,000 NYC construction-related incidents to uncover high-risk road segments due to factors like lighting or geometry  
+*(Scientific Reports, 2024).*
+
+## Variations of K-Means
+
+Enhanced techniques explored:
+
+- **Constrained K-Means** for consistent cluster sizes *(Usami, 2014)*
+- **Improved K-Means** for large datasets *(Na et al., 2010)*
+- **Filtering Algorithms** using kd-trees *(Kanungo et al., 2002)*
+- **GBKM** with genetic algorithms *(Chougule et al., 2015)*
+- **MapReduce K-Means** for big data *(Anchalia et al., 2013)*
+- **Silhouette-Weighted K-Means** for improved separation *(Semoglou et al., 2025)*
+
+## Limitations
+
+K-Means can suffer from:
+
+- Random centroid initialization
+- Sensitivity to the pre-set number of clusters
+- Difficulty with heterogeneous data
+
+To address this, preprocessing included feature scaling, handling missing values, and testing different initialization strategies  
+*(Ahmed et al., 2020; Wikipedia, 2025).*
+
+## Project Impact
+
+By identifying hotspots and accident patterns, this project supports targeted infrastructure improvements like better lighting or signage. The findings align with other major studies in London and Medellín, offering scalable, data-driven safety interventions  
+*(Discover Applied Sciences, 2020; ScienceDirect, 2007 & 2020).*
+
 
 ## Methods
 
